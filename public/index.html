@@ -7,6 +7,8 @@
 <title>Aline Moutinho | Nutricionista em Macapá (CRN 19687-AP)</title>
 <meta name="description" content="Aline Moutinho, nutricionista em Macapá (CRN: 19687-AP). Nutrição Integrativa, Gastronomia Saudável e Estilo de Vida Sem Extremismos. Atendimento presencial e online.">
 <meta name="theme-color" content="#A8442C">
+<script>(function(){try{var t=localStorage.getItem("tema");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:title" content="Aline Moutinho | Nutricionista em Macapá (CRN 19687-AP)">
 <meta property="og:description" content="Comer bem pode ser mais simples, prazeroso e possível na vida real.">
@@ -786,6 +788,19 @@ section{padding:44px 0}
 @media(hover:hover){.ft .ft-ig:hover{background:var(--btn);border-color:var(--btn);color:#FFF9F1}}
 .ft .ft-ig svg{display:block;flex:none;width:18px;height:18px}
 .ft .ft-ig>span:not(.vh){display:block;min-width:0;overflow:hidden;text-overflow:ellipsis}
+
+/* botão de tema (claro/escuro) no topo */
+.tema{flex:none;width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,249,241,.55);background:transparent;color:#FFF9F1;display:inline-grid;place-items:center;cursor:pointer;padding:0;margin-left:14px;transition:background .25s,border-color .25s,transform .4s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.tema:hover{background:rgba(255,249,241,.16);border-color:#FFF9F1}}
+.tema:active{transform:rotate(-25deg)}
+.tema:focus-visible{outline:2px solid #FFF9F1;outline-offset:3px}
+.tema svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tema .t-sol{display:none}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .tema .t-sol{display:block}:root:not([data-theme="light"]) .tema .t-lua{display:none}
+:root:not([data-theme="light"]) .on-g .st .n,:root:not([data-theme="light"]) .on-g .st .tg{color:#F4C2C2}}
+:root[data-theme="dark"] .tema .t-sol{display:block}:root[data-theme="dark"] .tema .t-lua{display:none}
+:root[data-theme="dark"] .on-g .st .n,:root[data-theme="dark"] .on-g .st .tg{color:#F4C2C2}
+@media (max-width:899px){.tema{margin-left:auto}.tema~.mb{margin-left:4px}}
 </style>
 <noscript><style>.rv,.up,.rise{opacity:1!important;transform:none!important;animation:none!important}.q .p{grid-template-rows:1fr}.q .p>div{visibility:visible!important}
 </style></noscript>
@@ -862,7 +877,7 @@ section{padding:44px 0}
 
 <header class="hd" id="hd"><div class="bar">
 <a href="#inicio" aria-label="Aline Moutinho, nutricionista. Ir ao início"><svg class="lgo" viewBox="0 0 2000 424" aria-hidden="true"><use href="#lg"/></svg></a>
-<nav class="hn" id="hn" aria-label="Seções"><a href="#inicio">Início</a><a href="#sobre">Quem sou</a><a href="#ajudo">Como ajudo</a><a href="#atendimento">Atendimento</a><a href="#onde">Onde atendo</a><a href="#duvidas">Dúvidas</a></nav><button type="button" class="mb" id="mb" aria-expanded="false" aria-controls="hn" aria-label="Abrir menu"><span aria-hidden="true"></span></button>
+<nav class="hn" id="hn" aria-label="Seções"><a href="#inicio">Início</a><a href="#sobre">Quem sou</a><a href="#ajudo">Como ajudo</a><a href="#atendimento">Atendimento</a><a href="#onde">Onde atendo</a><a href="#duvidas">Dúvidas</a></nav><button type="button" class="tema" id="tema" aria-label="Ativar modo escuro" title="Modo escuro"><svg class="t-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="t-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg></button><button type="button" class="mb" id="mb" aria-expanded="false" aria-controls="hn" aria-label="Abrir menu"><span aria-hidden="true"></span></button>
 </div></header>
 
 
@@ -1169,5 +1184,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList
 matchMedia('(min-width:960px)').addEventListener('change',function(){set(false)});
 })();
 </script>
+<script>(function(){var b=document.getElementById("tema");if(!b)return;var r=document.documentElement,mq=matchMedia("(prefers-color-scheme: dark)");
+function cur(){var t=r.getAttribute("data-theme");return t||(mq.matches?"dark":"light")}
+function ui(){var d=cur()==="dark";b.setAttribute("aria-label",d?"Ativar modo claro":"Ativar modo escuro");b.title=d?"Modo claro":"Modo escuro"}
+b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("tema",n)}catch(e){}ui()});
+if(mq.addEventListener)mq.addEventListener("change",ui);ui()})();</script>
 </body>
 </html>
